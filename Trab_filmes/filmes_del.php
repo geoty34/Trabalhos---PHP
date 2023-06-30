@@ -5,7 +5,7 @@ $id = isset ($_GET['id']) ? $_GET['id'] : null;
 
 if($id){
     $conn = Connection::getConnection();
-    $sql = "DELETE FROM Filmes WHERE id = ?";
+    $sql = "DELETE FROM filmes WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$id]);
 
