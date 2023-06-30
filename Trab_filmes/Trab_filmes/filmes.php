@@ -8,7 +8,7 @@ require_once("Connection.php");
 $conn = Connection::getConnection();
 //print_r($conn);
 
-$msgErro = "";
+$msgErro = array();
 
 $nome = isset($_POST['nome']) ? $_POST['nome'] : null;
 $genero = isset($_POST['genero']) ? $_POST['genero'] : null;
@@ -29,25 +29,32 @@ if (isset($_POST['submetido'])) {
 
     //Validar os dados
     if (!$nome) {
-        $msgErro .= "Informe o nome do filme <br>";
-    } else if (!$genero) {
-        $msgErro .= "Informe o gênero do filme <br>";
-    } else if (!$diretor) {
-        $msgErro = "Informe o diretor do filme <br>";
-    } else if (!$atores) {
-        $msgErro = "Informe os atores do filme <br>";
-    } else if (!$autores) {
-        $msgErro = "Informe o autor do filme <br>";
-    } else if (!$dtLanc) {
-        $msgErro = "Informe a data de lançamento do filme <br>";
-    } else if (!$bsFR) {
-        $msgErro = "Informe se o filme é baseado em fatos reais <br>";
+       array_push( $msgErro, "Informe o nome do filme <br>");
+
+    } if (!$genero) {
+       array_push( $msgErro, "Informe o gênero do filme <br>");
+
+    }  if (!$diretor) {
+        array_push ($msgErro, "Informe o diretor do filme <br>");
+
+    } if (!$atores) {
+        array_push ($msgErro, "Informe os atores do filme <br>");
+        
+    } if (!$autores) {
+       array_push( $msgErro, "Informe os autores do filme <br>");
+
+    }  if (!$dtLanc) {
+       array_push( $msgErro, "Informe a data de lançamento do filme <br>");
+
+    } if (!$bsFR) {
+       array_push( $msgErro, "Informe se o filme é baseado em fatos reais <br>");
 
 //Validar se o filme já existe
     }else if(count($filmesMesmoNome)>0){
             $msgErro = "Filme já cadastrado <br>";
 //se não houver erro, insere no banco de dados
-    } else {
+    } 
+    if (count($msgErro) == 0) {
     
 
         $sql = 'INSERT INTO filmes (nome, genero, diretor, atores, autores, bas_fatosreais, dt_lancamento)' .
@@ -131,7 +138,10 @@ if (isset($_POST['submetido'])) {
                     <!-- Mensagem de Erro-->
 
                     <div id="divErro" style="color:red; text-align:center; padding: 3px ">
-                        <?php echo "<p>$msgErro</p>"; ?>
+                        <?php foreach ($msgErro as $msg)
+                        echo "$msg <br>";
+                        ?>
+                        
 
                     </div>
 
