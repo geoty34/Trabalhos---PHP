@@ -1,0 +1,228 @@
+:root{
+    --primeira: aqua;
+    --segunda:rgba(167, 139, 250, 1);
+  }
+  
+  body{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-content: center;
+
+      background-size:30%;
+      margin: 50px;
+  }
+  
+  
+  /* FORMULÁRIO */
+  .global{
+    display: flex;
+    justify-content: space-around;
+    column-gap: 30px;
+  }
+  
+  form{
+      align-items: center;
+  }
+  
+  .form-container {
+      border-radius: 0.75rem;
+      background-color: rgba(17, 24, 39, 1);
+      padding: 2rem;
+      color: rgba(243, 244, 246, 1);
+      box-shadow: 0 5px 10px rgba(0,0,0,.6);
+    }
+  
+  .title {
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      font-weight: 700;
+  }
+    
+    .form {
+      margin-top: 1.5rem;
+  
+    }
+  
+    /*Inputs*/
+  
+      .form input{
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        margin: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
+        box-shadow: 0 5px 10px rgba(0,0,0,.6);
+      }
+        .form input:focus-visible{
+          top: -20px;
+          left: 0;
+          color: #bdb8b8;
+          font-size: 12px;
+        }
+  
+  /* Select  */
+  
+  .form select{
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        margin: 10px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: rgba(17, 24, 39, 1);
+        box-shadow: 0 5px 10px rgba(0,0,0,.6);
+  }
+      .form select option{
+        margin: 4px;
+        padding: 5px;
+      }
+  
+    /* Radio */ 
+  
+  .base{
+     padding: 10px;
+     border-bottom: 1px solid #fff;
+  }
+    .base legend{
+      text-align: start;
+      padding: 5px;
+      padding-bottom: 20px;
+      font-size: 16px;
+      line-height: 2rem;
+      font-weight: 700;
+    }
+    .base input{
+      text-align: start;
+      
+    }
+      .base label{
+        padding: 6px;
+      }
+  
+      
+     /* Parte de baixo*/
+          
+      .forgot {
+          display: flex;
+          justify-content: flex-end;
+          font-size: 0.75rem;
+          line-height: 1rem;
+          color: rgba(156, 163, 175,1);
+          margin: 8px 0 14px 0;
+        }
+        
+        .forgot a,.signup a {
+          color: rgba(243, 244, 246, 1);
+          text-decoration: none;
+          font-size: 14px;
+        }
+        
+        .forgot a:hover, .signup a:hover {
+          text-decoration: underline var(--segunda);
+        }
+        
+        .sign {
+          display: block;
+          width: 100%;
+          background-color: var(--segunda);
+          padding: 0.75rem;
+          text-align: center;
+          color: rgba(17, 24, 39, 1);
+          border: none;
+          border-radius: 0.375rem;
+          font-weight: 600;
+        }
+        
+        .social-message {
+          display: flex;
+          align-items: center;
+          padding-top: 1rem;
+        }
+        
+        .line {
+          height: 1px;
+          flex: 1 1 0%;
+          background-color: rgba(55, 65, 81, 1);
+        }
+        
+        .social-message .message {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          color: rgba(156, 163, 175, 1);
+        }
+        
+        .social-icons {
+          display: flex;
+          justify-content: center;
+        }
+        
+        .social-icons .icon {
+          border-radius: 0.125rem;
+          padding: 0.75rem;
+          border: none;
+          background-color: transparent;
+          margin-left: 8px;
+        }
+        
+        .social-icons .icon svg {
+          height: 1.25rem;
+          width: 1.25rem;
+          fill: #fff;
+        }
+        
+        .signup {
+          text-align: center;
+          font-size: 0.75rem;
+          line-height: 1rem;
+          color: rgba(156, 163, 175, 1);
+        }
+  
+  
+  
+  /* TABELA */
+  .direita{
+    margin: 30px;
+    margin-top: 0%;
+    padding: 0.65rem;
+    border-radius: 0.75rem;
+  }
+  table{
+    box-shadow: 0 5px 10px rgba(0,0,0,.6);
+    border-radius: 0.75rem;
+    background-color: rgba(17, 24, 39, 1);
+    padding: 5px;
+    color: rgba(243, 244, 246, 1);
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin-top: -8px;
+    text-align: center;
+    border-spacing: 10px;
+    border: none;
+  }
+    table td{
+      border: none;
+      border-right: 1px solid #fff ;
+      height: 20px;
+  
+    }
+      table tr.tt{
+          color: var(--segunda);
+          border-bottom: 1px solid #fff;
+      }
+  
+  a{
+    text-decoration: none;
+    color: var(--primeira);
+  }
+        
