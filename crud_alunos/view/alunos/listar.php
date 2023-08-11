@@ -12,6 +12,10 @@ require_once(__DIR__ . "/../include/header.php");
 ?>
 <h2 style="color:darkseagreen; ">Listagem de Alunos</h2>
 
+<div>
+    <a href="inserir.php">Inserir</a>
+</div>
+
 <table border="1" style="color: green; background-color:darkseagreen;" align-items="center">
     <thead>
         <tr>
