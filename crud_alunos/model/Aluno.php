@@ -1,110 +1,128 @@
 <?php
-    
-    //Modelo para aluno
-    require_once(__DIR__ . "/Curso.php");
+//Modelo para Aluno
+require_once(__DIR__ . "/Curso.php");
 
-    class Aluno{
+class Aluno {
 
-        private ?int $id;
-        private ?string $nome;
-        private ?int $idade;
-        private ?string $estrangeiro;
-        private ?Curso $curso;
+    private ?int $id;
+    private ?string $nome;
+    private ?int $idade;
+    private ?string $estrangeiro;
+    private ?Curso $curso;
 
-       
-
-        public function __construct()
-        {
-           
-            $this->curso = null;
-            $this->id = 0;
-        }
-
-
-      
-        public function getId(): ?int
-        {
-                return $this->id;
-        }
-
-        
-        public function setId(?int $id): self
-        {
-                $this->id = $id;
-
-                return $this;
-        }
-
-      
-        public function getNome(): ?string
-        {
-                return $this->nome;
-        }
-
-        
-        public function setNome(?string $nome): self
-        {
-                $this->nome = $nome;
-
-                return $this;
-        }
-
-      
-        public function getIdade(): ?int
-        {
-                return $this->idade;
-        }
-
-       
-        public function setIdade(?int $idade): self
-        {
-                $this->idade = $idade;
-
-                return $this;
-        }
-
-       
-        public function getEstrangeiro(): ?string
-        {
-                return $this->estrangeiro;
-        }
-
-        public function getEstrangeiroTexto(): ?string
-        {  if($this->estrangeiro == 'S')
-            return "Sim";
-            
-            elseif($this->estrangeiro == 'N')
-            return "Não";
-        }
-
-        
-        public function setEstrangeiro(?string $estrangeiro): self
-        {
-                $this->estrangeiro = $estrangeiro;
-
-                return $this;
-        }
-
-        public function getCurso(): ?curso
-        {
-                return $this->curso;
-        }
-
-       
-        public function setCurso(?curso $curso): self
-        {
-                $this->curso = $curso;
-
-                return $this;
-        }
+    public function __construct() {
+        $this->id = 0;
+        $this->curso = null;
     }
 
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
 
-        
-?>
-        
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
-        
-        
+        return $this;
+    }
 
+    /**
+     * Get the value of nome
+     */ 
+    public function getNome()
+    {
+        return $this->nome;
+    }
 
+    /**
+     * Set the value of nome
+     *
+     * @return  self
+     */ 
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idade
+     */ 
+    public function getIdade()
+    {
+        return $this->idade;
+    }
+
+    /**
+     * Set the value of idade
+     *
+     * @return  self
+     */ 
+    public function setIdade($idade)
+    {
+        $this->idade = $idade;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of estrangeiro
+     */ 
+    public function getEstrangeiro()
+    {
+        return $this->estrangeiro;
+    }
+
+    public function getEstrangeiroTexto()
+    {
+        if($this->estrangeiro == 'S')
+            return "Sim";
+        else if($this->estrangeiro == 'N')
+            return "Não";
+
+        return "";
+    }
+
+    /**
+     * Set the value of estrangeiro
+     *
+     * @return  self
+     */ 
+    public function setEstrangeiro($estrangeiro)
+    {
+        $this->estrangeiro = $estrangeiro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of curso
+     */ 
+    public function getCurso()
+    {
+        return $this->curso;
+    }
+
+    /**
+     * Set the value of curso
+     *
+     * @return  self
+     */ 
+    public function setCurso($curso)
+    {
+        $this->curso = $curso;
+
+        return $this;
+    }
+
+}
