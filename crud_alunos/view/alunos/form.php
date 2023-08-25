@@ -49,8 +49,10 @@ $cursos = $cursoCont->listar();
     <Button type="submit">Gravar</Button>
     <Button type="reset">Limpar</Button>
 
+</form><br>
+
+    <a href="listar.php">Voltar</a>
 
 
-</form>
 
 <?php require_once(__DIR__ . "/../include/footer.php"); ?>

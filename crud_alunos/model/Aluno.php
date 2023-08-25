@@ -17,17 +17,18 @@
         {
            
             $this->curso = null;
+            $this->id = 0;
         }
 
 
       
-        public function getId()
+        public function getId(): ?int
         {
                 return $this->id;
         }
 
         
-        public function setId($id)
+        public function setId(?int $id): self
         {
                 $this->id = $id;
 
@@ -35,13 +36,13 @@
         }
 
       
-        public function getNome()
+        public function getNome(): ?string
         {
                 return $this->nome;
         }
 
         
-        public function setNome($nome)
+        public function setNome(?string $nome): self
         {
                 $this->nome = $nome;
 
@@ -49,13 +50,13 @@
         }
 
       
-        public function getIdade()
+        public function getIdade(): ?int
         {
                 return $this->idade;
         }
 
        
-        public function setIdade($idade)
+        public function setIdade(?int $idade): self
         {
                 $this->idade = $idade;
 
@@ -63,12 +64,12 @@
         }
 
        
-        public function getEstrangeiro()
+        public function getEstrangeiro(): ?string
         {
                 return $this->estrangeiro;
         }
 
-        public function getEstrangeiroTexto()
+        public function getEstrangeiroTexto(): ?string
         {  if($this->estrangeiro == 'S')
             return "Sim";
             
@@ -77,20 +78,20 @@
         }
 
         
-        public function setEstrangeiro($estrangeiro)
+        public function setEstrangeiro(?string $estrangeiro): self
         {
                 $this->estrangeiro = $estrangeiro;
 
                 return $this;
         }
 
-        public function getCurso()
+        public function getCurso(): ?curso
         {
                 return $this->curso;
         }
 
        
-        public function setCurso($curso)
+        public function setCurso(?curso $curso): self
         {
                 $this->curso = $curso;
 
