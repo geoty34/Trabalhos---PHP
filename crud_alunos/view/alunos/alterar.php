@@ -17,9 +17,13 @@ if(isset($_POST['submetido'])) {
     $idade = is_numeric($_POST['idade']) ? $_POST['idade'] : null;
     $estrang = trim($_POST['estrang']) ? trim($_POST['estrang']) : null;
     $idCurso = is_numeric($_POST['curso']) ? $_POST['curso'] : null;
+    $idAluno = $_POST['id'];
+    //echo $idAluno;
+    //exit;
     
     //Criar um objeto Aluno para persistência
     $aluno = new Aluno();
+    $aluno->setId($idAluno);
     $aluno->setNome($nome);
     $aluno->setIdade($idade);
     $aluno->setEstrangeiro($estrang);

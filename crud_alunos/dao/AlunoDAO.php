@@ -34,6 +34,11 @@ class AlunoDAO {
     }
 
     public function deleteById(int $id) {
+        $conn = Connection::getConnection();
+
+        $sql = "DELETE FROM alunos WHERE id = ?"; 
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
         //TODO implementar
     }
 
@@ -41,7 +46,8 @@ class AlunoDAO {
         $sql = "SELECT a.*," . 
                 " c.nome AS nome_curso, c.turno AS turno_curso" . 
                 " FROM alunos a" .
-                " JOIN cursos c ON (c.id = a.id_curso)";
+                " JOIN cursos c ON (c.id = a.id_curso)" . 
+                " ORDER BY a.nome";
         $stm = $this->conn->prepare($sql);
         $stm->execute();
         $result = $stm->fetchAll();

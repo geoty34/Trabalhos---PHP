@@ -15,27 +15,23 @@ $cursos = $cursoCont->listar();
 
     <div>
         <label for="txtNome">Nome:</label>
-        <input type="text" name="nome" id="txtNome"
-        value="<?php echo($aluno ? $aluno->getNome(): ''); ?>" />
+        <input type="text" name="nome" id="txtNome" value="<?php echo ($aluno ? $aluno->getNome() : ''); ?>" />
     </div><br>
 
     <div>
         <label for="txtIdade">Idade:</label>
-        <input type="number" name="idade" id="txtIdade"
-        value="<?php echo($aluno ? $aluno->getIdade(): ''); ?>" /> 
+        <input type="number" name="idade" id="txtIdade" value="<?php echo ($aluno ? $aluno->getIdade() : ''); ?>" />
     </div><br>
 
     <div>
         <label for="selEstrang">Estrangeiro:</label>
         <select id="selEstrang" name="estrang">
             <option value="">---Selecione---</option>
-            <option value="S" 
-            <?php echo($aluno && $aluno->getEstrangeiro() == 'S' ? 'selected' : ''); ?>>
-            >Sim</option>
-            <option value="N"
-            <?php echo($aluno && $aluno->getEstrangeiro() == 'N' ? 'selected' : ''); ?>>
-            >Não</option>
-            
+            <option value="S" <?php echo ($aluno && $aluno->getEstrangeiro() == 'S' ? 'selected' : ''); ?>>
+                >Sim</option>
+            <option value="N" <?php echo ($aluno && $aluno->getEstrangeiro() == 'N' ? 'selected' : ''); ?>>
+                >Não</option>
+
         </select>
     </div><br>
 
@@ -45,24 +41,24 @@ $cursos = $cursoCont->listar();
             <option value="">---Selecione---</option>
 
             <?php foreach ($cursos as $curso) : ?>
-                <option value="<?= $curso->getId(); ?>"
+                <option value="<?= $curso->getId(); ?>" 
                 <?php
-                if ($aluno && $aluno->getCurso() && $aluno->getCurso()->getId() == 
-                    $curso->getId()) {
-                    echo "selected";
-                    }
-                    ?>
-                    
-                >
+                        if (
+                             $aluno && $aluno->getCurso() && $aluno->getCurso()->getId() ==
+                             $curso->getId()
+                             ) {
+                              echo "selected";
+                             }
+                        ?>>
                     <?= $curso->getNome(); ?>
                 </option>
             <?php endforeach; ?>
         </select>
     </div><br>
-<input type="hidden" name="id" 
-value="<?php echo ($aluno ? $aluno->getId() : 0);?>" />
+    <input type="hidden" name="id" value="<?php echo ($aluno ? $aluno->getId() : 0); ?>" />
 
     <input type="hidden" name="submetido" value="1" />
+
 
     <button type="submit">Gravar</button>
     <button type="reset">Limpar</button>

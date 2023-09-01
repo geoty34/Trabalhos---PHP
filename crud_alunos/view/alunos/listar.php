@@ -18,18 +18,18 @@ require(__DIR__ . "/../include/header.php");
 <h2 style="color:darkseagreen"; >Listagem de alunos</h2>
 
 <div>
-    <a href="inserir.php">Inserir</a>
-</div>
+    <a class="btn btn-success" href="inserir.php">Inserir</a>
+</div><br>
 
-<table border="1" style="color: green; background-color:darkseagreen;" align-items="center">
+<table class="table"  style="color: green; background-color:darkseagreen;" align-items="center">
     <thead>
         <tr>
             <td>Nome</td>
             <td>Idade</td>
             <td>Estrangeiro</td>
             <td>Curso</td>
-            <td></td>
-            <td></td>
+            <td>Alterar</td>
+            <td>Excluir</td>
         </tr>
     </thead>
     <tbody>
@@ -44,7 +44,8 @@ require(__DIR__ . "/../include/header.php");
                     </a>
                 </td>
               
-                <td><a href="#"> 
+                <td><a href="excluir.php?idAluno=<?= $a->getId(); ?>"
+                     onclick="return confirm('Confirmar a exclusão?');"> 
                         <img src="../../img/btn_excluir.png" /> 
                     </a>
                 </td>

@@ -45,6 +45,8 @@ class AlunoController {
     }
 
     public function excluirPorId(int $id) {
+
+        $this->alunoDAO->deleteById($id);
         //TODO implementar
     }
 
