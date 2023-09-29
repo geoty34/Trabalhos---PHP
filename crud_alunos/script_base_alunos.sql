@@ -27,3 +27,18 @@ CREATE TABLE alunos (
   CONSTRAINT pk_alunos PRIMARY KEY (id)
 );
 ALTER TABLE alunos ADD CONSTRAINT fk_curso FOREIGN KEY (id_curso) REFERENCES cursos (id);
+
+
+/* TABELA Usuarios */
+CREATE TABLE usuarios ( 
+  id int AUTO_INCREMENT, 
+  nome varchar(70) NOT NULL, 
+  login varchar(15) NOT NULL,
+  senha varchar(15) NOT NULL, 
+  PRIMARY KEY (id) 
+);
+ALTER TABLE usuarios ADD CONSTRAINT uk_usuarios UNIQUE KEY (login);
+
+/*Inserts usuarios*/
+INSERT INTO usuarios (nome, login, senha) VALUES ('Sr. Administrador', 'admin', 'admin');
+INSERT INTO usuarios (nome, login, senha) VALUES ('Sr. Root', 'root', 'root');

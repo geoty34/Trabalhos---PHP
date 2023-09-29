@@ -11,65 +11,76 @@ $cursos = $cursoCont->listar();
 
 <h3 style="color:darkseagreen;"><?php echo (!$aluno || $aluno->getId() <= 0 ? 'Inserir' : 'Alterar') ?> Aluno</h3>
 
-<form id="frmAluno" method="POST">
+<div class="row">
+    <div class="col-6">
+    <form id="frmAluno" method="POST">
 
-    <div>
-        <label for="txtNome">Nome:</label>
-        <input type="text" name="nome" id="txtNome" value="<?php echo ($aluno ? $aluno->getNome() : ''); ?>" />
-    </div><br>
+        <div class="form-group">
+            <label for="txtNome">Nome:</label>
+            <input type="text" name="nome" id="txtNome" class="form-control" value="<?php echo ($aluno ? $aluno->getNome() : ''); ?>" />
+        </div><br>
 
-    <div>
-        <label for="txtIdade">Idade:</label>
-        <input type="number" name="idade" id="txtIdade" value="<?php echo ($aluno ? $aluno->getIdade() : ''); ?>" />
-    </div><br>
+        <div class="form-group">
+            <label for="txtIdade">Idade:</label>
+            <input type="number" name="idade" id="txtIdade" class="form-control"
+            value="<?php echo ($aluno ? $aluno->getIdade() : ''); ?>" />
+        </div><br>
 
-    <div>
-        <label for="selEstrang">Estrangeiro:</label>
-        <select id="selEstrang" name="estrang">
-            <option value="">---Selecione---</option>
-            <option value="S" <?php echo ($aluno && $aluno->getEstrangeiro() == 'S' ? 'selected' : ''); ?>>
-                >Sim</option>
-            <option value="N" <?php echo ($aluno && $aluno->getEstrangeiro() == 'N' ? 'selected' : ''); ?>>
-                >Não</option>
+        <div class="form-group">
+            <label for="selEstrang">Estrangeiro:</label>
+            <select id="selEstrang" name="estrang" class="form-control">
+                <option value="">---Selecione---</option>
+                <option value="S" <?php echo ($aluno && $aluno->getEstrangeiro() == 'S' ? 'selected' : ''); ?>>
+                    >Sim</option>
+                <option value="N" <?php echo ($aluno && $aluno->getEstrangeiro() == 'N' ? 'selected' : ''); ?>>
+                    >Não</option>
 
-        </select>
-    </div><br>
+            </select>
+        </div><br>
 
-    <div>
-        <label for="selCurso">Curso:</label>
-        <select id="selCurso" name="curso">
-            <option value="">---Selecione---</option>
+        <div class="form-group">
+            <label for="selCurso">Curso:</label>
+            <select id="selCurso" name="curso" class="form-control">
+                <option value="">---Selecione---</option>
 
-            <?php foreach ($cursos as $curso) : ?>
-                <option value="<?= $curso->getId(); ?>" 
-                <?php
-                        if (
-                             $aluno && $aluno->getCurso() && $aluno->getCurso()->getId() ==
-                             $curso->getId()
-                             ) {
-                              echo "selected";
-                             }
-                        ?>>
-                    <?= $curso->getNome(); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-    </div><br>
-    <input type="hidden" name="id" value="<?php echo ($aluno ? $aluno->getId() : 0); ?>" />
+                <?php foreach ($cursos as $curso) : ?>
+                    <option value="<?= $curso->getId(); ?>" 
+                    <?php
+                            if (
+                                $aluno && $aluno->getCurso() && $aluno->getCurso()->getId() ==
+                                $curso->getId()
+                                ) {
+                                echo "selected";
+                                }
+                            ?>>
+                        <?= $curso->getNome(); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div><br>
+        <input type="hidden" name="id" value="<?php echo ($aluno ? $aluno->getId() : 0); ?>" />
 
-    <input type="hidden" name="submetido" value="1" />
+        <input type="hidden" name="submetido" value="1" />
 
 
-    <button type="submit">Gravar</button>
-    <button type="reset">Limpar</button>
+        <button type="submit" class="btn btn-success">Gravar</button>
+        <button type="reset" class="btn btn-success" >Limpar</button>
 
-</form><br>
+    </form><br>
+</div>
 
-<div style="color: red" ;>
-    <?php echo $msgErro; ?>
 
-</div><br>
+    <div class="col-6">
+        <?php if($msgErro): ?>
+        <div class="alert alert-danger">
+            <?php echo $msgErro; ?>
+        </div><br>
+        <?php endif;?>
+    </div>
+</div>
 
-<a href="listar.php">Voltar</a>
+
+
+<a href="listar.php" class="btn btn-success">Voltar</a>
 
 <?php require_once(__DIR__ . "/../include/footer.php"); ?>
