@@ -1,14 +1,38 @@
 <?php
+ ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+ error_reporting(E_ALL);
 
+require_once(__DIR__ . "/../../controller/LoginController.php");
 //Pagina com o formulario de login
 
-    if(isset($_POST['submetido'])){
-        $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
+$msgErro = "";
+$usuario = "";
+$senha = "";
 
-        echo $usuario . " - " . $senha;
+if (isset($_POST['submetido'])) {
+    $usuario = $_POST['usuario'];
+    $senha = $_POST['senha'];
+
+    $loginCont = new LoginController();
+    $erros = $loginCont->logar($usuario, $senha);
+
+
+    // Redirecionar para a pagina inicial
+    if(!$erros){
+        header("location: " . BASE_URL);
+        exit;
     }
+
+    // Se tiver erros, exibe-os
+    $msgErro = implode("<br>", $erros);
+
+    //echo $msgErro;
+    // echo $usuario . " - " . $senha;
+
+}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -28,27 +52,42 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-5">
+            <div class="col-6 mt-5">
                 <h3>Login</h3>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-16 alert alert-info">
+            <div class="col-6 alert alert-info">
                 <form action="" method="POST">
                     <div class="form-group">
                         <label for="txtUsu">Usuario</label>
-                        <input type="text" class="form-control" name="usuario" id="txtUsu" />
+                        <input type="text" class="form-control" 
+                               name="usuario" id="txtUsu" 
+                               value="<?= $usuario ?>"/>
                     </div>
 
                     <div class="form-group">
                         <label for="txtUsu">Senha</label>
-                        <input type="password" class="form-control" name="senha" id="txtSenha" />
+                        <input type="password" class="form-control" 
+                               name="senha" id="txtSenha" 
+                               value="<?= $senha ?>"/>
                     </div>
-                    <input type="hidden" name="submetido" value="1"/>
+                    <input type="hidden" name="submetido" value="1" />
 
                     <button class="btn btn-info">Entrar</button>
                 </form>
+            </div>
+            <div class="col-6">
+                <?php if ($msgErro) : ?>
+                    <div class="alert alert-danger">
+                        <?= $msgErro ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+
             </div>
 
         </div>

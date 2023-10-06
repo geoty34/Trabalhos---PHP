@@ -1,6 +1,8 @@
 <?php
 require_once(__DIR__ . "/../../util/config.php");
+require_once(__DIR__ . "/../login/verifica.php");
 ?>
+
 <nav class="navbar navbar-expand-md navbar-light bg-success">
     <a class="navbar-brand" href="#">CRUD MVC</a>
 
