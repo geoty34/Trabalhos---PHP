@@ -6,5 +6,4 @@ define("DB_NAME", "crud_aula");
 define("DB_USER", "root");
 define("DB_PASSWORD", "bancodedados");
 
-//Constante
 define("BASE_URL", "/LProgWeb-3Bim/crud_alunos");

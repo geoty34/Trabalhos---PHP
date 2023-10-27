@@ -1,86 +1,69 @@
 <?php
-//Formulário para alunos
+    // Formulário para alunos
 
-require_once(__DIR__ . "/../../controller/CursoController.php");
-require_once(__DIR__ . "/../include/header.php");
+    include_once(__DIR__."/../../controller/CursoController.php");
+    include_once(__DIR__."/../include/header.php");
 
-$cursoCont = new CursoController();
-$cursos = $cursoCont->listar();
-//print_r($cursos);
+    $cursoCont = new CursoController();
+    $cursos = $cursoCont->listar();
+    // print_r($cursos);
 ?>
 
-<h3 style="color:darkseagreen;"><?php echo (!$aluno || $aluno->getId() <= 0 ? 'Inserir' : 'Alterar') ?> Aluno</h3>
+    <h3>Inserir Alunos</h3>
 
-<div class="row">
-    <div class="col-6">
-    <form id="frmAluno" method="POST">
+    <form action="" method="POST" id="form">
 
         <div class="form-group">
             <label for="txtNome">Nome:</label>
-            <input type="text" name="nome" id="txtNome" class="form-control" value="<?php echo ($aluno ? $aluno->getNome() : ''); ?>" />
-        </div><br>
+            <input type="text" name="nome" id="txtNome" class="form-control"
+                value="<?php echo ($aluno ? $aluno->getNome() : '')?>"/>
+        </div> 
+
+        <br>
 
         <div class="form-group">
             <label for="txtIdade">Idade:</label>
             <input type="number" name="idade" id="txtIdade" class="form-control"
-            value="<?php echo ($aluno ? $aluno->getIdade() : ''); ?>" />
-        </div><br>
+                value="<?php echo ($aluno ? $aluno->getIdade() : '')?>"/>
+        </div>
 
-        <div class="form-group">
-            <label for="selEstrang">Estrangeiro:</label>
-            <select id="selEstrang" name="estrang" class="form-control">
-                <option value="">---Selecione---</option>
-                <option value="S" <?php echo ($aluno && $aluno->getEstrangeiro() == 'S' ? 'selected' : ''); ?>>
-                    >Sim</option>
-                <option value="N" <?php echo ($aluno && $aluno->getEstrangeiro() == 'N' ? 'selected' : ''); ?>>
-                    >Não</option>
+        <br>
 
+        <div class="form-group"> 
+            <label for="selEstrange">Estrangeiro:</label>
+            <select name="estrang" id="selEstrange" class="form-control">
+                <option value="">--Selecione--</option>
+                <option value="S">Sim</option>
+                <option value="N">Não</option>
             </select>
-        </div><br>
+        </div>
 
+        <br>
+        
         <div class="form-group">
             <label for="selCurso">Curso:</label>
-            <select id="selCurso" name="curso" class="form-control">
-                <option value="">---Selecione---</option>
-
-                <?php foreach ($cursos as $curso) : ?>
-                    <option value="<?= $curso->getId(); ?>" 
-                    <?php
-                            if (
-                                $aluno && $aluno->getCurso() && $aluno->getCurso()->getId() ==
-                                $curso->getId()
-                                ) {
-                                echo "selected";
-                                }
-                            ?>>
+            <select name="curso" id="selCurso" class="form-control">
+                <option value="">--Selecione o Curso--</option>
+                <?php foreach($cursos as $curso): ?>
+                    <option value="<?= $curso->getId(); ?>">
                         <?= $curso->getNome(); ?>
                     </option>
-                <?php endforeach; ?>
+                <?php endforeach ?>
             </select>
-        </div><br>
-        <input type="hidden" name="id" value="<?php echo ($aluno ? $aluno->getId() : 0); ?>" />
+        </div>
 
-        <input type="hidden" name="submetido" value="1" />
+        <br>
 
+        <input type="hidden" name="submetido" value="1"/>
+        
+        <button type="submit">Gravar</button>
+        <button type="reset">Limpar</button>
+        
+    </form>
 
-        <button type="submit" class="btn btn-success">Gravar</button>
-        <button type="reset" class="btn btn-success" >Limpar</button>
+    <br>
+    <a href="listar.php">Voltar</a>
 
-    </form><br>
-</div>
-
-
-    <div class="col-6">
-        <?php if($msgErro): ?>
-        <div class="alert alert-danger">
-            <?php echo $msgErro; ?>
-        </div><br>
-        <?php endif;?>
-    </div>
-</div>
-
-
-
-<a href="listar.php" class="btn btn-success">Voltar</a>
-
-<?php require_once(__DIR__ . "/../include/footer.php"); ?>
+<?php
+    include_once(__DIR__."/../include/footer.php");
+?>

@@ -1,18 +1,21 @@
 <?php
-//Controller para Curso
+    // Controller para Curso
 
-require_once(__DIR__ . "/../dao/CursoDAO.php");
+    require_once(__DIR__."/../dao/CursoDAO.php");
 
-class CursoController {
+    class CursoController {
 
-    private CursoDAO $cursoDAO;
+        private CursoDAO $cursoDAO;
 
-    public function __construct() {
-        $this->cursoDAO = new CursoDAO();
+        public function __construct() {
+            $this ->cursoDAO = new CursoDAO();
+        }
+            
+        
+        public function listar() {
+
+            return $this->cursoDAO->list();
+        }
+
     }
-
-    public function listar() {
-        return $this->cursoDAO->list();
-    }
-
-}
+?>

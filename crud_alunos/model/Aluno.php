@@ -1,6 +1,6 @@
 <?php
-//Modelo para Aluno
-require_once(__DIR__ . "/Curso.php");
+// Modelo para aluno
+require_once(__DIR__."/Curso.php");
 
 class Aluno {
 
@@ -10,6 +10,7 @@ class Aluno {
     private ?string $estrangeiro;
     private ?Curso $curso;
 
+    
     public function __construct() {
         $this->id = 0;
         $this->curso = null;
@@ -17,18 +18,16 @@ class Aluno {
 
     /**
      * Get the value of id
-     */ 
-    public function getId()
+     */
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
      * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId($id)
+     */
+    public function setId(?int $id): self
     {
         $this->id = $id;
 
@@ -37,18 +36,16 @@ class Aluno {
 
     /**
      * Get the value of nome
-     */ 
-    public function getNome()
+     */
+    public function getNome(): ?string
     {
         return $this->nome;
     }
 
     /**
      * Set the value of nome
-     *
-     * @return  self
-     */ 
-    public function setNome($nome)
+     */
+    public function setNome(?string $nome): self
     {
         $this->nome = $nome;
 
@@ -57,18 +54,16 @@ class Aluno {
 
     /**
      * Get the value of idade
-     */ 
-    public function getIdade()
+     */
+    public function getIdade(): ?int
     {
         return $this->idade;
     }
 
     /**
      * Set the value of idade
-     *
-     * @return  self
-     */ 
-    public function setIdade($idade)
+     */
+    public function setIdade(?int $idade): self
     {
         $this->idade = $idade;
 
@@ -77,28 +72,26 @@ class Aluno {
 
     /**
      * Get the value of estrangeiro
-     */ 
-    public function getEstrangeiro()
+     */
+    public function getEstrangeiro(): ?string
     {
         return $this->estrangeiro;
     }
 
-    public function getEstrangeiroTexto()
-    {
-        if($this->estrangeiro == 'S')
-            return "Sim";
-        else if($this->estrangeiro == 'N')
-            return "Não";
+            public function getEstrangeiroTexto(): ?string
+            {
+                if ($this->estrangeiro == 'S') 
+                    return "Sim";
+                 else if ($this->estrangeiro == 'N')
+                    return "Não";
 
-        return "";
-    }
+                return "";
+            }
 
     /**
      * Set the value of estrangeiro
-     *
-     * @return  self
-     */ 
-    public function setEstrangeiro($estrangeiro)
+     */
+    public function setEstrangeiro(?string $estrangeiro): self
     {
         $this->estrangeiro = $estrangeiro;
 
@@ -107,22 +100,19 @@ class Aluno {
 
     /**
      * Get the value of curso
-     */ 
-    public function getCurso()
+     */
+    public function getCurso(): ?Curso
     {
         return $this->curso;
     }
 
     /**
      * Set the value of curso
-     *
-     * @return  self
-     */ 
-    public function setCurso($curso)
+     */
+    public function setCurso(?Curso $curso): self
     {
         $this->curso = $curso;
 
         return $this;
     }
-
 }
