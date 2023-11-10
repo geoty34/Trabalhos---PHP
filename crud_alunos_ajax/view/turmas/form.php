@@ -76,4 +76,4 @@ $cursos = $cursoCont->listar();
 require_once(__DIR__ . "/../include/footer.php");
 ?>
 
-<script src="js/turmas.js"></script>
+<script src="js/turmas_assincrono.js"></script>
